@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
     end
 
     def index
-        @reports = Report.all.with_attached_photo
+        @reports = Report.with_attached_photo
     end
 
     def show
