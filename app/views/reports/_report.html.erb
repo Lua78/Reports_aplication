@@ -1,0 +1,16 @@
+
+<div>
+    <%= link_to report_path(report.id) do%>
+        <h2>Usuario: <%=report.user%></h2>
+        <h3><%=report.tittle%> </h3>
+        <p>Fecha:<%=report.created_at %></p>
+    <%end%>
+</div>
+<div>
+    <%= image_tag report.photo, width: 150, heigth: 150 if report.photo.attached?%>
+</div>
+<div>
+    <%= link_to edit_report_path(report.id) do%>
+    <h4>Editar</h4>
+    <% end %>
+</div>

@@ -1,0 +1,23 @@
+<%= form_with model:@report do |form|%>
+<div>
+<%= form.label :user%>
+<%= form.text_field :user%>
+</div>
+<div>
+<%= form.label :tittle%>
+<%= form.text_field :tittle%>
+</div>
+
+<div>
+<%= form.label :description%>
+<%= form.text_field :description%>
+</div>
+
+<div>
+<%= form.label :photo%>
+<%= form.file_field :photo%>
+</div>
+
+<%= form.submit%>
+
+<% end %>
