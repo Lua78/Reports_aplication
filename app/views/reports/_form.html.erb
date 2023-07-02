@@ -4,17 +4,22 @@
 <%= form.text_field :user%>
 </div>
 <div>
-<%= form.label :tittle%>
+<%= form.label :Titulo%>
 <%= form.text_field :tittle%>
 </div>
 
 <div>
-<%= form.label :description%>
+<%= form.label :Descripcion%>
 <%= form.text_field :description%>
 </div>
 
 <div>
-<%= form.label :photo%>
+<%= form.label :Categoria%>
+<%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name %>
+</div>
+
+<div>
+<%= form.label :Foto%>
 <%= form.file_field :photo%>
 </div>
 

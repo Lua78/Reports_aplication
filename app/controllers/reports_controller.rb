@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
     end
 
     def index
-        @reports = Report.with_attached_photo
+        @reports = Report.with_attached_photo.order(created_at: :desc)
     end
 
     def show
@@ -45,7 +45,7 @@ class ReportsController < ApplicationController
 
     private
     def  report_params
-        params.require(:report).permit(:user,:tittle,:description,:photo)
+        params.require(:report).permit(:user,:tittle,:description,:photo,:category_id)
     end
 
     def report

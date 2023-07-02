@@ -3,4 +3,6 @@ class Report < ApplicationRecord
     validates :user, presence: true
     validates :tittle, presence: true
     validates :description, presence: true
+
+    belongs_to :category
 end

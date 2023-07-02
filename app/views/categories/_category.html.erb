@@ -1,0 +1,12 @@
+<div id="<%= dom_id category %>">
+  <p>
+    <strong>Name:</strong>
+    <%= category.name %>
+  </p>
+    <div>
+        <%= link_to 'Eliminar', category_path(category.id),data: {
+            turbo_method: :delete
+        }  %>
+        <%= link_to 'Editar', edit_category_path(category.id)%>
+    </div>
+</div>
