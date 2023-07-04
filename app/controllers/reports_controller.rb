@@ -5,7 +5,11 @@ class ReportsController < ApplicationController
     end
 
     def index
-        @reports = Report.with_attached_photo.order(created_at: :desc)
+        @reports = Report.with_attached_photo
+        filter = Report::TIME_FILTER.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['today'.to_sym])
+        @reports = @reports.where(filter).order(created_at: :desc).load_async
+        @pagy, @reports = pagy_countless(@reports,items: 10)
+
     end
 
     def show
@@ -17,7 +21,7 @@ class ReportsController < ApplicationController
         if @report.save
             redirect_to reports_path, notice: 'Reporte agregado'
         else
-            render new, alert: 'Ha ocurrido un error al crear el reporte'
+            render :new,status: :unprocessable_entity, notice: 'Ha ocurrido un error al crear el reporte'
         end
 
     end

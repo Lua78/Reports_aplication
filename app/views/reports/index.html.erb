@@ -1,2 +1,15 @@
 <h1>Reportes</h1>
-<%= render partial:'report', collection: @reports%>
+    <%= form_with url: reports_path, method: :get do |form|%>
+        <%= form.select :filter,options_for_select([["Hoy","today"],["Todos","all"],["Esta semana","week"]],params[:filter]), {},
+        { onChange: 'this.form.requestSubmit()'}%>
+    <%end%>
+<%= turbo_frame_tag "Listado-#{@pagy.page}", class: 'reports' do%>
+
+    <%= render partial:'report', collection: @reports%>
+    <%= turbo_frame_tag "Listado-#{@pagy.next}", class: 'reports', src: 
+    pagy_url_for(@pagy,@pagy.next), loading: :lazy if @pagy.next%>
+<%end%>
+
+
+
+
