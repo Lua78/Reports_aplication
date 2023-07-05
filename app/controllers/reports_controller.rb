@@ -6,14 +6,17 @@ class ReportsController < ApplicationController
 
     def index
         @reports = Report.with_attached_photo
-        filter = Report::TIME_FILTER.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['today'.to_sym])
+        filter = Report::TIME_FILTER.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['all'.to_sym])
         @reports = @reports.where(filter).order(created_at: :desc).load_async
         @pagy, @reports = pagy_countless(@reports,items: 10)
 
     end
 
     def show
-        report
+        if report.visto==false then
+            report.update(visto:true)
+        end
+        
     end
 
     def create

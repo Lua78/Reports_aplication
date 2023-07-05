@@ -1,6 +1,6 @@
 <h1>Reportes</h1>
     <%= form_with url: reports_path, method: :get do |form|%>
-        <%= form.select :filter,options_for_select([["Hoy","today"],["Todos","all"],["Esta semana","week"]],params[:filter]), {},
+        <%= form.select :filter,options_for_select([["Todos","all"],["Hoy","today"],["Esta semana","week"]],params[:filter]), {},
         { onChange: 'this.form.requestSubmit()'}%>
     <%end%>
 <%= turbo_frame_tag "Listado-#{@pagy.page}", class: 'reports' do%>
