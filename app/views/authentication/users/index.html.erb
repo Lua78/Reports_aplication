@@ -1,0 +1,7 @@
+<h1>Usuarios</h1>
+<%= link_to 'Agregar Usuario', new_user_path%>
+<%= turbo_frame_tag "Listado-#{@pagy.page}", class: 'users' do%>
+    <%= render partial:'user', collection: @users%>
+    <%= turbo_frame_tag "Listado-#{@pagy.next}", class: 'users', src: 
+    pagy_url_for(@pagy,@pagy.next), loading: :lazy if @pagy.next%>
+<%end%>

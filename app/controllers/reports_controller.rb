@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
         if report.visto==false then
             report.update(visto:true)
         end
-        
+
     end
 
     def create
@@ -39,6 +39,7 @@ class ReportsController < ApplicationController
         else
             render new
         end
+        
     end
 
     def destroy

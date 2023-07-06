@@ -1,8 +1,17 @@
 <h1>Reportes</h1>
+<div>
+    <%= link_to 'Agregar Reporte', new_report_path %>
+    <%= link_to 'Categorias', categories_path%>
+    <%= link_to 'Usuarios', users_path%>
+</div>
+
+<div>
     <%= form_with url: reports_path, method: :get do |form|%>
         <%= form.select :filter,options_for_select([["Todos","all"],["Hoy","today"],["Esta semana","week"]],params[:filter]), {},
         { onChange: 'this.form.requestSubmit()'}%>
     <%end%>
+</div>
+
 <%= turbo_frame_tag "Listado-#{@pagy.page}", class: 'reports' do%>
 
     <%= render partial:'report', collection: @reports%>
