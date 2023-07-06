@@ -1,23 +1,27 @@
 <%= form_with model:@report do |form|%>
 <div>
-<%= form.label :nmae%>
-<%= form.text_field :name%>
+<%= form.label :user%>
+<%= form.text_field :user%>
 </div>
 <div>
-<%= form.label :username%>
-<%= form.text_field :username%>
+<%= form.label :Titulo%>
+<%= form.text_field :tittle%>
 </div>
 
 <div>
-<%= form.label :password%>
-<%= form.password_field :password%>
+<%= form.label :Descripcion%>
+<%= form.text_field :description%>
 </div>
 
 <div>
-<%= form.label :Admin?%>
-<%= form.select :admin,options_for_select([["No",false],["Si",true]])%>
+<%= form.label :Categoria%>
+<%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name %>
 </div>
 
+<div>
+<%= form.label :Foto%>
+<%= form.file_field :photo%>
+</div>
 
 <%= form.submit%>
 
