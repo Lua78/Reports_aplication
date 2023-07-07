@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: Juan
+  user: one
   tittle: Ponchadura
   description: Ponchadura de llanta en el km 25
-  category: Mecanica
+  category: 1
+  user_id: 1
 
 two:
-  user: Jose
+  user: one
   tittle: Falla de entrega
   description: No se realizo la entrega por ausencia del cliente
-  category: Cliente
+  category: 2
+  user_id: 1

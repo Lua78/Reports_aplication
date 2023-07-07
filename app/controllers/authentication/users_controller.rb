@@ -1,4 +1,6 @@
 class Authentication::UsersController < ApplicationController
+    skip_before_action :protect_page, only: [:new,:create]
+
     def index 
         @users = User.order(name: :asc).load_async
         @pagy, @users = pagy_countless(@users,items: 10)

@@ -2,12 +2,12 @@
 
 <div>
 <%= form.label :'Nombre de Usuario'%>
-<%= form.text_field :username%>
+<%= form.text_field :username, require: true%>
 </div>
 
 <div>
 <%= form.label :Contraseña%>
-<%= form.password_field :password%>
+<%= form.password_field :password , require: true%>
 </div>
 
 <%= form.submit :'Iniciar Sesion'%>

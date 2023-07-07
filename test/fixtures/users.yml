@@ -1,15 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  username: MyString
-  password: MyString
-  admin: MyString
-  boolean: MyString
+  name: Luis ismael
+  username: lismael
+  password: urbina123
+  admin: true
 
-two:
-  name: MyString
-  username: MyString
-  password: MyString
-  admin: MyString
-  boolean: MyString

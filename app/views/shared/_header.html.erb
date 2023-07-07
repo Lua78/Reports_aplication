@@ -2,3 +2,7 @@
 <div>
 <h1><%= link_to 'Reportes de Incidencia', reports_path %></h1>
 </div>
+<%= link_to 'Cerrar Sesion',  session_path(Current.user::id), data: {  
+    turbo_method: :delete,
+    turbo_confirm: '¿Cerrar sesion?'
+} if Current.user %>

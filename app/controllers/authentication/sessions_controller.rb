@@ -13,4 +13,9 @@ class Authentication::SessionsController < ApplicationController
             redirect_to new_session_path, alert: 'Usuario o contraseña incorrectos.'
         end
     end
+
+    def destroy
+        session.delete(:user_id)
+        redirect_to new_session_path
+    end
 end

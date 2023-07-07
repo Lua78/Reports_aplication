@@ -19,8 +19,11 @@ class ReportsController < ApplicationController
 
     end
 
-    def create
+    def create 
         @report = Report.new(report_params)
+        pp Current.user::name
+        @report.nameuser = Current.user::name
+        pp @report::nameuser
         if @report.save
             redirect_to reports_path, notice: 'Reporte agregado'
         else
@@ -53,7 +56,7 @@ class ReportsController < ApplicationController
 
     private
     def  report_params
-        params.require(:report).permit(:user,:tittle,:description,:photo,:category_id)
+        params.require(:report).permit(:tittle,:description,:photo,:category_id)
     end
 
     def report
