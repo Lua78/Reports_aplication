@@ -5,9 +5,12 @@ class ReportsController < ApplicationController
     end
 
     def index
-        @reports = Report.with_attached_photo
         filter = Report::TIME_FILTER.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['all'.to_sym])
-        @reports = @reports.where(filter).order(created_at: :desc).load_async
+        @reports = Report.with_attached_photo.where(filter).order(created_at: :desc).load_async
+        if params[:visibilidad]
+            @reports = @reports.where("visto = :vis ", { vis: params[:visibilidad]})
+        end
+      
         @pagy, @reports = pagy_countless(@reports,items: 10)
 
     end

@@ -1,8 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: Luis ismael
-  username: lismael
-  password: urbina123
+Luis:
+  name: 'Luis ismael'
+  username: 'lismael'
+  password_digest: 'urbina123'
   admin: true
 
+Juan:
+  name: 'Juan Natanael'
+  username: 'jnatanael'
+  password_digest: 'urbina123'
+  admin: true

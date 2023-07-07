@@ -9,6 +9,8 @@
     <%= form_with url: reports_path, method: :get do |form|%>
         <%= form.select :filter,options_for_select([["Todos","all"],["Hoy","today"],["Esta semana","week"]],params[:filter]), {},
         { onChange: 'this.form.requestSubmit()'}%>
+        <%= form.select :visibilidad,options_for_select([["Vistos",true],["No vistos",false]],params[:visibilidad]), {},
+        { onChange: 'this.form.requestSubmit()'}%>   
     <%end%>
 </div>
 
