@@ -1,0 +1,15 @@
+<%= form_with(url: sessions_path) do |form|%>
+
+<div>
+<%= form.label :'Nombre de Usuario'%>
+<%= form.text_field :username%>
+</div>
+
+<div>
+<%= form.label :Contraseña%>
+<%= form.password_field :password%>
+</div>
+
+<%= form.submit :'Iniciar Sesion'%>
+
+<% end %>

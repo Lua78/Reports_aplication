@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    @categories = Category.all
+    @categories = Category.all.load_async
   end
 
  
@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
       if @category.save
-    redirect_to categories_path, notice: "Categoria creada correctamente." 
+    redirect_to categories_path, notice: 'Categoria creada correctamente.'
       else
         render :new, status: :unprocessable_entity 
       end
@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
 
   def update
       if category.update(category_params)
-        redirect_to categories_path, notice: "Categoria actualizada correctamente." 
+        redirect_to categories_path, notice: 'Categoria actualizada correctamente.'
       else
        render :edit, status: :unprocessable_entity 
       end
@@ -34,7 +34,9 @@ class CategoriesController < ApplicationController
 
   def destroy
     if category.destroy
-     redirect_to categories_url, notice: "Categoria eliminada correctamente." 
+     redirect_to categories_url, notice: 'Categoria eliminada correctamente.'
+    else
+      render :new,  status: :unprocessable_entity, alert: 'Error al intentar eliminar la categoria.'
     end
   end
 

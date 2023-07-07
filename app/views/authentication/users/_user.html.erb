@@ -2,9 +2,7 @@
     <h2>Usuario: <%= user.name%></h2>
     <h3><%= user.username%> </h3>
         <div>
-            <%= link_to 'Eliminar', user_path(user.id),data: {
-                turbo_method: :delete
-            }  %>
+            <%= link_to 'Editar', edit_user_path(user.id), 'data-turbo-frame': '_top'%>
         </div>
     </div>
 <%end%>

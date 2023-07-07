@@ -1,9 +1,8 @@
-<%= link_to user_path(@user.id), 'data-turbo-frame': '_top' do%>
-    <h2>Usuario: <%= @user.name%></h2>
-    <h3><%= @user.username%> </h3>
-    <h3>administrador: <%= @user.admin%> </h3>
-        <div>
-            <%= link_to 'Editar', edit_user_path(@user.id)%>
-        </div>
+<%= link_to 'Volver',  users_path%>
+<h2>Usuario: <%= @user.name%></h2>
+<h3><%= @user.username%> </h3>
+<h3>administrador: <%= @user.admin%> </h3>
+    <div>
+        <%= link_to 'Eliminar', user_path(@user.id), data: {turbo_method: :delete}%>
     </div>
-<%end%>
+</div>

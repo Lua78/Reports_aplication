@@ -24,7 +24,7 @@ class ReportsController < ApplicationController
         if @report.save
             redirect_to reports_path, notice: 'Reporte agregado'
         else
-            render :new,status: :unprocessable_entity, notice: 'Ha ocurrido un error al crear el reporte'
+            render :new,status: :unprocessable_entity, notice: 'Ha ocurrido un error al crear el reporte.'
         end
 
     end
