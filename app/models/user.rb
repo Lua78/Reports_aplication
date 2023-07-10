@@ -4,7 +4,7 @@ class User < ApplicationRecord
     
     validates :name, presence: true,
     format: {
-        with: /\A[ a-z-A-Z]+\z/,
+        with: /\A[ a-zA-Z]+\z/,
         message: :invalid
     }
 
@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true,
     length: { in: 4..15 },
     format: {
-        with: /\A[ a-z-A-Z-0-9]+\z/,
+        with: /\A[ a-zA-Z0-9]+\z/,
         message: :invalid
     }
     validates :password, presence: true, length: { minimum: 6 }

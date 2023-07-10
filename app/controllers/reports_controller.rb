@@ -6,7 +6,13 @@ class ReportsController < ApplicationController
 
     def index
         @reports = Report.with_attached_photo
-        filter = Report::TIME_FILTER.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['all'.to_sym])
+        pp Current.user::id
+        if Current.user::admin==true then
+            filter = Report::TIME_FILTER_ADMIN.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['all'.to_sym])
+        else
+            filter = Report::TIME_FILTER.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['all'.to_sym])
+        end
+        pp "adasjdlkasjdasjdkjasljk"
         @reports = @reports.where(filter).order(created_at: :desc).load_async
         @pagy, @reports = pagy_countless(@reports,items: 10)
 
