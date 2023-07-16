@@ -1,5 +1,6 @@
 class Authentication::UsersController < ApplicationController
     skip_before_action :protect_page, only: [:new,:create]
+    before_action :authorize_user 
 
     def index 
         @users = User.order(name: :asc).load_async

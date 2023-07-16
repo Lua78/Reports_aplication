@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authorize_user 
 
   def index
     @categories = Category.all.load_async
@@ -10,13 +11,12 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-     category
+    category
   end
 
 
   def create
     @category = Category.new(category_params)
-
       if @category.save
     redirect_to categories_path, notice: 'Categoria creada correctamente.'
       else
