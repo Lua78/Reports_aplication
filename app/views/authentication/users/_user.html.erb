@@ -4,5 +4,8 @@
         <div>
             <%= link_to 'Editar', edit_user_path(user.id), 'data-turbo-frame': '_top'%>
         </div>
+        <div>
+            <%= link_to 'Eliminar', user_path(user.id), 'data-turbo-frame': '_top', data: {turbo_method: :delete}%>
+        </div> 
     </div>
 <%end%>

@@ -1,0 +1,57 @@
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .modern-input {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 16px;
+    width: 200px;
+  }
+  .button{
+    margin-top: 15px;
+    background-color: rgb(23, 165, 10);
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 8px 5px ;
+    border: 1px solid #ccc;
+}
+
+  .modern-input::placeholder {
+    color: silver;
+  }
+  
+  .modern-input::-webkit-input-placeholder {
+    color: silver;
+  }
+  
+  .modern-input::-moz-placeholder {
+    color: silver;
+  }
+  
+  .modern-input:-ms-input-placeholder {
+    color: silver;
+  }
+  
+  .modern-input:focus {
+    outline: none;
+  }
+  
+  .modern-input:focus::placeholder {
+    color: #666;
+  }
+  
+  .modern-input:focus::-webkit-input-placeholder {
+    color: #666;
+  }
+  
+  .modern-input:focus::-moz-placeholder {
+    color: #666;
+  }
+  
+  .modern-input:focus:-ms-input-placeholder {
+    color: #666;
+  }
+

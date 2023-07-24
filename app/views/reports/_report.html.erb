@@ -4,7 +4,7 @@
         <h2>Usuario: <%=report.nameuser%></h2>
         <h3><%=report.tittle%> </h3>
         <p>Fecha:<%=report.created_at %></p>
-        <%if report.visto %>
+        <%if report.visto && Current.user::admin %>
             <p>El reporte ha sido visto</p>
         <%end%>
     <%end%>

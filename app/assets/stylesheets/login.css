@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.conteiner{
+    display: flex;
+    justify-content: center;
+}
+.panel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #333; /* Color del texto del encabezado */
+
+}

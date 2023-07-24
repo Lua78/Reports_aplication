@@ -1,5 +1,6 @@
 class Authentication::UsersController < ApplicationController
-    skip_before_action :protect_page, only: [:new,:create]
+    skip_before_action :protect_page, except: :show
+    before_action :authorize_user, except: :show
 
     def index 
         @users = User.order(name: :asc).load_async
@@ -28,8 +29,10 @@ class Authentication::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        unless params[:photo].present?
+            @user.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', @user.imageDefault)), filename: 'perfil.png', content_type: 'image/png')
+          end
         if @user.save
-            session[:user_id] = @user.id
             redirect_to users_path,  notice:'Usuario agregado correctamente.'
         else
             render :new ,status: :unprocessable_entity, alert: 'Ha ocurrido un error.'
@@ -46,7 +49,7 @@ class Authentication::UsersController < ApplicationController
 
     private
     def  user_params
-        params.require(:user).permit(:name,:username,:password,:admin)
+        params.require(:user).permit(:name,:username,:photo,:password,:admin)
     end
 
     def user

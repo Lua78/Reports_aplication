@@ -1,15 +1,26 @@
-<%= form_with(url: sessions_path) do |form|%>
+<!DOCTYPE html>
+<head>
+    <%= stylesheet_link_tag 'login' %>
+</head>
+<body>
+        <div class="panel">
+            <h2>Inicio de Sesion</h2>
+        </div>
 
-<div>
-<%= form.label :'Nombre de Usuario'%>
-<%= form.text_field :username, require: true%>
-</div>
+    <div class="conteiner">
+        <%= form_with(url: sessions_path) do |form|%>
+            <div class="input-wrapper">
+            <%= form.text_field :username, require: true, class: 'modern-input',placeholder:'Usuario'%>
+            </div>
 
-<div>
-<%= form.label :Contraseña%>
-<%= form.password_field :password , require: true%>
-</div>
+            <div>
+            <%= form.password_field :password ,class: 'modern-input',placeholder: "Contraseña", require: true%>
+            </div>
 
-<%= form.submit :'Iniciar Sesion'%>
-
-<% end %>
+            <div class="conteiner">
+               <%= form.submit :'Iniciar Sesion', class:'button'%>
+            </div>
+        <% end %>
+    </div>
+</body>
+</html>

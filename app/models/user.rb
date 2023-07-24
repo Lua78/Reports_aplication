@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_one_attached :photo
     has_many :reports, dependent: :restrict_with_exception
     
     validates :name, presence: true,
@@ -19,9 +20,13 @@ class User < ApplicationRecord
 
     before_save :down_user
 
-    private
+    def imageDefault 
+        'perfil.png'
+    end
 
+    private
     def down_user
         self.username = username.downcase
     end
+
 end

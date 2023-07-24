@@ -1,8 +1,8 @@
 <%= link_to 'Volver',  users_path%>
+<div>
+    <%= image_tag @user.photo, width: 100, heigth: 100 if @user.photo.attached?%>
+</div>
 <h2>Usuario: <%= @user.name%></h2>
 <h3><%= @user.username%> </h3>
 <h3>administrador: <%= @user.admin%> </h3>
-    <div>
-        <%= link_to 'Eliminar', user_path(@user.id), data: {turbo_method: :delete}%>
-    </div>
 </div>
