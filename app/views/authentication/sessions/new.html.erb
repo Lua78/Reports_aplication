@@ -3,24 +3,29 @@
     <%= stylesheet_link_tag 'login' %>
 </head>
 <body>
-        <div class="panel">
-            <h2>Inicio de Sesion</h2>
-        </div>
-
-    <div class="conteiner">
-        <%= form_with(url: sessions_path) do |form|%>
-            <div class="input-wrapper">
-            <%= form.text_field :username, require: true, class: 'modern-input',placeholder:'Usuario'%>
-            </div>
-
-            <div>
-            <%= form.password_field :password ,class: 'modern-input',placeholder: "Contraseña", require: true%>
-            </div>
+    <div class="conteiner" style="height: 100%;">
+        <div class="card box">
+                <div class="panel">
+                    <h2>Inicio de Sesion</h2>
+                </div>
 
             <div class="conteiner">
-               <%= form.submit :'Iniciar Sesion', class:'button'%>
+                <%= form_with(url: sessions_path) do |form|%>
+                    <div class="input-wrapper">
+                    <%= form.text_field :username, require: true, class: 'modern-input',placeholder:'Usuario'%>
+                    </div>
+
+                    <div>
+                    <%= form.password_field :password ,class: 'modern-input',placeholder: "Contraseña", require: true%>
+                    </div>
+
+                    <div class="conteiner">
+                    <%= form.submit :'Iniciar Sesion', class:'button'%>
+                    </div>
+                <% end %>
             </div>
-        <% end %>
+        </div>
     </div>
+
 </body>
 </html>

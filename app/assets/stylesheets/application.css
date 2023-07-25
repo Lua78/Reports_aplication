@@ -13,5 +13,15 @@
  *= require_tree .
  *= require_self
  */
- @import "inputs-buttons";
+ 
+@import "inputs-buttons";
 @import "layout";
+@import "alerts";
+
+/*--- Para dispositivos small responsive ---*/
+
+@media (max-width: 576px) {
+    .wrap-login {
+      padding: 77px 15px 33px 15px;
+    }
+  }

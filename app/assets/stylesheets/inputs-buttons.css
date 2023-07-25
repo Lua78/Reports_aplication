@@ -2,56 +2,78 @@
     position: relative;
     display: inline-block;
   }
-  
-  .modern-input {
+.box{
+  background: #eceff1;
+  margin-top: 100px;
+  width: 300px;
+  height: 320px;
+  justify-content: center;
+  border-radius: 10px;
+  border-style: solid;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 77px 55px 53px 55px;
+  -webkit-box-shadow: 25px 40px 28px 0px rgba(0, 0, 0, 0.38);
+}
+
+.modern-input {
+    margin-bottom: 8px;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px 15px;
     font-size: 16px;
     width: 200px;
-  }
-  .button{
+}
+
+.button{
     margin-top: 15px;
-    background-color: rgb(23, 165, 10);
     border-radius: 5px;
     font-size: 12px;
     padding: 8px 5px ;
     border: 1px solid #ccc;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-  .modern-input::placeholder {
-    color: silver;
-  }
+.modern-input::placeholder {
+  color: silver;
+}
   
-  .modern-input::-webkit-input-placeholder {
-    color: silver;
-  }
+.modern-input::-webkit-input-placeholder {
+  color: silver;
+}
   
-  .modern-input::-moz-placeholder {
-    color: silver;
-  }
+.modern-input::-moz-placeholder {
+  color: silver;
+}
   
-  .modern-input:-ms-input-placeholder {
-    color: silver;
-  }
+.modern-input:-ms-input-placeholder {
+  color: silver;
+}
   
-  .modern-input:focus {
-    outline: none;
-  }
+.modern-input:focus {
+  outline: none;
+}
   
-  .modern-input:focus::placeholder {
-    color: #666;
-  }
+.modern-input:focus::placeholder {
+  color: #666;
+}
   
-  .modern-input:focus::-webkit-input-placeholder {
-    color: #666;
-  }
+.modern-input:focus::-webkit-input-placeholder {
+  color: #666;
+}
   
-  .modern-input:focus::-moz-placeholder {
-    color: #666;
-  }
+.modern-input:focus::-moz-placeholder {
+  color: #666;
+}
   
-  .modern-input:focus:-ms-input-placeholder {
-    color: #666;
-  }
+.modern-input:focus:-ms-input-placeholder {
+  color: #666;
+}
 

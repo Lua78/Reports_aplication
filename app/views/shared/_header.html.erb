@@ -1,9 +1,22 @@
 
 
-<%= link_to 'Reportes de Incidencia', reports_path if Current.user%>
+<ul class="nav nav-tabs justify-content-end" style="background-color:white ;">
+  <li class="nav-item">
+    <a class="nav-link disabled" style="color: black; font-family: roboto;" href="#" tabindex="-1" aria-disabled="true">Reportes de Incidencia</a>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Reportes', reports_path, class:"nav-link" if Current.user%>
+  </li>
 
-<%= link_to 'Perfil',  user_path(Current.user::id) if Current.user %>
-<%= link_to 'Cerrar Sesion',  session_path(Current.user::id), data: {  
-    turbo_method: :delete,
-    turbo_confirm: '¿Cerrar sesion?'
-} if Current.user %>
+  <li class="nav-item">
+    <%= link_to 'Cerrar Sesion',  session_path(Current.user::id), data: {  
+        turbo_method: :delete,
+        turbo_confirm: '¿Cerrar sesion?'
+    }, class:"nav-link"  if Current.user %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to 'Perfil',  user_path(Current.user::id), class:"nav-link" if Current.user %>
+  </li>
+</ul>
+
