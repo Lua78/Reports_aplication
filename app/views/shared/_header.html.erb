@@ -16,7 +16,9 @@
   </li>
 
   <li class="nav-item">
-    <%= link_to 'Perfil',  user_path(Current.user::id), class:"nav-link" if Current.user %>
+    <%= link_to user_path(Current.user::id) do%>
+      <%= image_tag Current.user::photo , class:"rounded-image-frame"%>
+    <%end if Current.user%>
   </li>
 </ul>
 

@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
             filter = Report::TIME_FILTER_ADMIN.fetch(params[:filter]&.to_sym, Report::TIME_FILTER['all'.to_sym])
             if params[:visibilidad]=="Todos" then
                 @reports = Report.with_attached_photo.where(filter).order(created_at: :desc).load_async
-            elsif params[:visibilidad]
+            elsif params[:visibilidad] then
                 @reports = Report.with_attached_photo.where(filter+" and visto =#{params[:visibilidad]}").order(created_at: :desc).load_async
             else
                 @reports = Report.with_attached_photo.where(filter).order(created_at: :desc).load_async
@@ -19,7 +19,6 @@ class ReportsController < ApplicationController
             @reports = Report.with_attached_photo.where(filter).order(created_at: :desc).load_async
         end
         @pagy, @reports = pagy_countless(@reports,items: 10)
-
     end
 
     def show

@@ -17,13 +17,13 @@
     <%= render "shared/header"%>
 
     <% if flash[:alert].present?%>
-      <div class="alert alert-danger  d-flex align-items-center" style="width: 250px;">
+      <div class="alert alert-danger  d-flex align-items-center" style="width: 300px;">
         <%= alert%>
       </div>
     <% end %>
 
     <% if flash[:notice].present?%>
-      <div class="alert alert-success" style="width: 100px;">
+      <div class="alert alert-success" style="width: 300px;">
         <%= notice %>
       </div>
     <% end %>
