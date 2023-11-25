@@ -1,16 +1,17 @@
 
 
-<div class="card" style="width: 18rem;">
+<div class="card w-50 shadow">
     <%= image_tag report.photo,class:"card-img-top", width: 150, heigth: 150 if report.photo.attached?%>
     <div class="card-body">
         <%= link_to report_path(report.id), 'data-turbo-frame': '_top' do%>
-            <h2 class="card-tittle"><%=report.nameuser%></h2>
-            <h3 class="card-text"><%=report.tittle%> </h3>
+            <h2 class="card-text"><%=report.tittle%> </h2>
+            
+        <%end%>
+            <strong class="card-tittle"><%=report.nameuser%></strong>
             <h5 class="card-text">Fecha:<%=report.created_at %></h5>
             <%if report.visto%>
                 <p>El reporte ha sido visto</p>
             <%end%>
-        <%end%>
             <%= link_to edit_report_path(report.id), 'data-turbo-frame': '_top' do%>
                 <h4 class="btn btn-primary">Editar</h4>
             <% end %>

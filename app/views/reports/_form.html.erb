@@ -1,28 +1,34 @@
-<%= form_with model:@report do |form|%>
-<% @report.errors.full_messages.each do|err| %>
-    <div>
-        <%= err %>    
+
+<div class="d-flex justify-content-center">
+    <%= form_with model: @report, class: 'my-4 w-50' do |form| %>
+    <% @report.errors.full_messages.each do |err| %>
+        <div class="alert alert-danger" role="alert">
+        <%= err %>
+        </div>
+    <% end %>
+
+    <div class="mb-3">
+        <%= form.label :Titulo, class: 'form-label' %>
+        <%= form.text_field :tittle, class: 'form-control' %>
     </div>
-<%end%>
-<%= form.label :Titulo%>
-<%= form.text_field :tittle%>
+
+    <div class="mb-3">
+        <%= form.label :Descripcion, class: 'form-label' %>
+        <%= form.text_field :description, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :Categoria, class: 'form-label' %>
+        <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name, { prompt: 'Seleccionar categoría' }, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :Foto, class: 'form-label' %>
+        <%= form.file_field :photo, class: 'form-control' %>
+    </div>
+
+    <%= form.submit 'Guardar', class: 'btn btn-primary' %>
+    <% end %>
 </div>
 
-<div>
-<%= form.label :Descripcion%>
-<%= form.text_field :description%>
-</div>
 
-<div>
-<%= form.label :Categoria%>
-<%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name %>
-</div>
-
-<div>
-<%= form.label :Foto%>
-<%= form.file_field :photo%>
-</div>
-
-<%= form.submit%>
-
-<% end %>
